@@ -1,87 +1,69 @@
-# Welcome to React Router!
+# AI Video Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
+AI Video Analyzer คือเว็บแอปสำหรับวิเคราะห์วิดีโอและให้คะแนน/คำแนะนำโดยใช้ AI  
+สร้างด้วย React, React Router, TypeScript และ TailwindCSS
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## คุณสมบัติ
 
-## Features
+- อัปโหลดวิดีโอและระบุหัวข้อที่คาดหวัง
+- วิเคราะห์วิดีโอด้วย AI ผ่าน API
+- แสดงคะแนนและคำแนะนำ
+- UI สวยงาม ใช้งานง่าย รองรับมือถือ
+- รองรับ .env สำหรับตั้งค่า API URL
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## วิธีเริ่มต้นใช้งาน
 
-## Getting Started
-
-### Installation
-
-Install the dependencies:
+### 1. ติดตั้ง dependencies
 
 ```bash
 npm install
 ```
 
-### Development
+### 2. ตั้งค่าไฟล์ .env
 
-Start the development server with HMR:
+สร้างไฟล์ `.env` ที่โฟลเดอร์หลักของโปรเจกต์
+
+```env
+VITE_API_URL=http://127.0.0.1:8000
+```
+
+### 3. เริ่มเซิร์ฟเวอร์สำหรับพัฒนา
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+แอปจะอยู่ที่ http://localhost:5173
 
-## Building for Production
-
-Create a production build:
+### 4. สร้างไฟล์สำหรับ production
 
 ```bash
 npm run build
 ```
 
-## Deployment
+## การ deploy
 
-### Docker Deployment
+- รองรับ Docker, Vercel, Netlify, หรือโฮสต์ static อื่น ๆ
+- ถ้า deploy แบบ static SPA ต้องตั้ง fallback ให้เสมอไปที่ `index.html` (ดูเอกสารของโฮสต์นั้น ๆ)
 
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+## โครงสร้างโปรเจกต์
 
 ```
+├── app/
+│   └── routes/
+│       ├── home.tsx      # หน้าอัปโหลดและฟอร์ม
+│       └── result.tsx    # หน้าผลลัพธ์
+├── .env                  # ตัวแปร API URL
 ├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+├── tailwind.config.js
+└── ...
 ```
 
-## Styling
+## หมายเหตุ
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+- หากรีเฟรชหรือเข้าหน้า `/result` โดยตรงจะเกิด 404 (ข้อจำกัดของ SPA)
+- ต้องเข้าผ่านการ submit ฟอร์มเท่านั้น
 
 ---
 
-Built with ❤️ using React Router.
+สร้างด้วย ❤️ โดย PhiraponSTD
