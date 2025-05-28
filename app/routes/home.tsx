@@ -22,12 +22,17 @@ export default function Home() {
     formData.append("expected_topic", expectedTopic);
 
     const apiUrl = import.meta.env.VITE_API_URL;
-    // const response = await fetch(`https://video-analyzer-api.onrender.com/analyze`, {
-    // const response = await fetch("http://127.0.0.1:8000/analyze", {
+
     const response = await fetch(`${apiUrl}/analyze`, {
       method: "POST",
       body: formData,
     });
+
+    if (!response.ok) {
+      // แจ้ง error หรือ navigate พร้อม error
+      navigate("/result", { state: { error: "เกิดข้อผิดพลาดในการวิเคราะห์" } });
+      return;
+    }
 
     const data = await response.json();
 
