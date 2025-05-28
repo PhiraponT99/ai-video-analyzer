@@ -42,8 +42,7 @@ export default function Result() {
   }
 
   // เช็คกรณีไม่มีข้อมูลจาก state
-  if (!score && !suggestion && !error) {
-    // ไม่มีข้อมูลจาก state
+  if (typeof score === "undefined" && typeof suggestion === "undefined" && !error) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-100 to-pink-200">
         <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col items-center">
@@ -87,14 +86,16 @@ export default function Result() {
           <div className="bg-green-50 rounded-lg p-4">
             <p className="text-gray-700 text-lg font-semibold">
               คะแนน:{" "}
-              <span className="text-green-600">{score ?? "ไม่มีข้อมูล"}</span>
+              <span className="text-green-600">
+                {typeof score !== "undefined" ? score : "ไม่มีข้อมูล"}
+              </span>
             </p>
           </div>
           <div className="bg-blue-50 rounded-lg p-4">
             <p className="text-gray-700 text-lg font-semibold">
               คำแนะนำ:{" "}
               <span className="text-blue-600">
-                {suggestion ?? "ไม่มีข้อมูล"}
+                {typeof suggestion !== "undefined" ? suggestion : "ไม่มีข้อมูล"}
               </span>
             </p>
           </div>
