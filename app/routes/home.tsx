@@ -22,10 +22,9 @@ export default function Home() {
     formData.append("expected_topic", expectedTopic);
 
     const apiUrl = import.meta.env.VITE_API_URL;
-
-    const response = await fetch(`${apiUrl}/analyze`, {
     // const response = await fetch(`https://video-analyzer-api.onrender.com/analyze`, {
     // const response = await fetch("http://127.0.0.1:8000/analyze", {
+    const response = await fetch(`${apiUrl}/analyze`, {
       method: "POST",
       body: formData,
     });
