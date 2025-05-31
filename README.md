@@ -81,7 +81,10 @@ npm run build
    }
    ```
 
-4. **Push ขึ้น GitHub แล้ว Deploy ขึ้น Vercel**
+4. **ตรวจสอบว่าไฟล์ `api/index.js` มีอยู่จริงใน repo**
+   - ถ้าไม่มีไฟล์นี้ Vercel จะ deploy ไม่สำเร็จ
+
+5. **Push ขึ้น GitHub แล้ว Deploy ขึ้น Vercel**
    - Vercel จะใช้ `api/index.js` เป็น entry point สำหรับ SSR
 
 ---
@@ -93,9 +96,12 @@ npm run build
 │   └── routes/
 │       ├── home.tsx      # หน้าอัปโหลดและฟอร์ม
 │       └── result.tsx    # หน้าผลลัพธ์
+├── api/
+│   └── index.js          # SSR entry สำหรับ Vercel
 ├── .env                  # ตัวแปร API URL
 ├── package.json
 ├── tailwind.config.js
+├── vercel.json
 └── ...
 ```
 
