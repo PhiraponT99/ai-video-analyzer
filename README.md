@@ -48,6 +48,44 @@ npm run build
 - ถ้า deploy แบบ static SPA ต้องตั้ง fallback ให้เสมอไปที่ `index.html` (ดูเอกสารของโฮสต์นั้น ๆ)
 - หากใช้ backend แยก ให้ deploy backend (Node.js/Express) และ MongoDB ด้วย
 
+## การ deploy แบบ SSR (React Router v7) บน Vercel
+
+### ขั้นตอน
+
+1. **รัน build**
+   ```bash
+   npm run build
+   ```
+
+2. **ย้ายไฟล์ server ที่ build เสร็จไปไว้ที่ `api/index.js`**
+   - หลัง build จะได้ไฟล์ `./build/server/index.js`
+   - ให้คัดลอกหรือย้ายไฟล์นี้ไปที่ `api/index.js` (สร้างโฟลเดอร์ `api` ที่ root ถ้ายังไม่มี)
+   - ตัวอย่างคำสั่ง (บน Windows):
+     ```bash
+     mkdir api
+     copy build\server\index.js api\index.js
+     ```
+
+3. **ตั้งค่าไฟล์ `vercel.json` ที่ root ของโปรเจกต์**
+   ```json
+   {
+     "functions": {
+       "api/index.js": {
+         "runtime": "nodejs18.x"
+       }
+     },
+     "routes": [
+       { "src": "/api/.*", "dest": "/api/index.js" },
+       { "src": "/(.*)", "dest": "/api/index.js" }
+     ]
+   }
+   ```
+
+4. **Push ขึ้น GitHub แล้ว Deploy ขึ้น Vercel**
+   - Vercel จะใช้ `api/index.js` เป็น entry point สำหรับ SSR
+
+---
+
 ## โครงสร้างโปรเจกต์
 
 ```
