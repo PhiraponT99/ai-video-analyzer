@@ -138,7 +138,7 @@ const home = withComponentProps(function Home() {
   const [expectedTopic, setExpectedTopic] = useState("");
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    var _a, _b;
+    let _a, _b;
     e.preventDefault();
     if (!file || !expectedTopic) return;
     const formData = new FormData();
@@ -205,7 +205,7 @@ const home = withComponentProps(function Home() {
             type: "file",
             accept: "video/*",
             onChange: (e) => {
-              var _a;
+              let _a;
               return setFile(((_a = e.target.files) == null ? void 0 : _a[0]) || null);
             },
             required: true,

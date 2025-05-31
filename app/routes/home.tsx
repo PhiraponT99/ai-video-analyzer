@@ -62,7 +62,7 @@ export default function Home() {
               id="video-upload"
               type="file"
               accept="video/*"
-              onChange={e => setFile(e.target.files?.[0] || null)}
+              onChange={e => setFile(e.target.files?.[0] ?? null)}
               required
               className="block w-full text-sm text-blue-100 border border-blue-700 rounded-lg cursor-pointer bg-blue-950 focus:ring-2 focus:ring-blue-500 focus:outline-none file:bg-blue-900 file:border-0 file:text-blue-200 file:mr-3"
             />
