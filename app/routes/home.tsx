@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
-
+import { useNavigate } from "react-router-dom"
 export function meta() {
   return [
     { title: "AI Video Analyzer" },
@@ -21,7 +20,8 @@ export default function Home() {
     formData.append("video", file);
     formData.append("expected_topic", expectedTopic);
 
-    const apiUrl = import.meta.env.VITE_API_URL;
+    // Make sure VITE_API_URL is defined in your .env file and accessible via import.meta.env
+    const apiUrl = (import.meta as any).env.VITE_API_URL;
 
     const response = await fetch(`${apiUrl}/analyze`, {
       method: "POST",

@@ -1,23 +1,22 @@
 {
   "scripts": {
     "dev": "vite",
-    "build": "react-router build",
-    "start": "react-router-serve ./build/server/index.js"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@react-router/dev": "^7.6.1",
-    "@react-router/node": "^7.6.1",
-    "@react-router/serve": "^7.6.1",
-    "@remix-run/node": "^2.16.8",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-router-dom": "^7.6.1",
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
+    "@types/node": "^22.15.29",
     "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.5"
+    "@types/react-dom": "^19.1.5",
+    "vite": "^6.3.5"
   },
   "engines": {
     "node": "20"
