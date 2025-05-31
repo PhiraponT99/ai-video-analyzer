@@ -5,16 +5,12 @@
     "start": "react-router-serve ./build/server/index.js"
   },
   "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "@react-router/dev": "^7.6.1",
-    "@react-router/node": "^7.6.1",
-    "@react-router/serve": "^7.6.1",
-    "@tailwindcss/vite": "^4.1.8",
-    "isbot": "^5",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "@react-router/serve": "^7.6.1"
   },
   "devDependencies": {
-    "@types/node": "^22.15.29",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5"
   }
