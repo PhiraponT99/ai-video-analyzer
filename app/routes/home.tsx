@@ -36,7 +36,12 @@ export default function Home() {
 
     const data = await response.json();
 
-    navigate("/result", { state: { score: data.score, suggestion: data.suggestion } });
+    navigate("/result", { 
+      state: { 
+        score: data.result?.score, 
+        suggestion: data.result?.suggestion 
+      } 
+    });
   };
 
   return (
