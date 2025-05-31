@@ -20,7 +20,6 @@ export default function Home() {
     formData.append("video", file);
     formData.append("expected_topic", expectedTopic);
 
-    // Make sure VITE_API_URL is defined in your .env file and accessible via import.meta.env
     const apiUrl = (import.meta as any).env.VITE_API_URL;
 
     const response = await fetch(`${apiUrl}/analyze`, {
