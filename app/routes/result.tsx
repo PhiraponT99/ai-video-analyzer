@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router";
+import "../app.css"; // เพิ่มถ้ายังไม่ได้ import
 
 export default function Result() {
   const location = useLocation();
@@ -9,11 +10,11 @@ export default function Result() {
   // กรณี error
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900">
-        <div className="bg-blue-900/90 rounded-xl shadow-2xl p-8 w-full max-w-md flex flex-col items-center border border-blue-800">
-          <div className="bg-red-900 rounded-full p-4 mb-2 shadow">
+      <div className="ai-bg">
+        <div className="ai-card flex flex-col items-center ai-error-bg">
+          <div className="ai-icon-bg">
             <svg
-              className="w-10 h-10 text-red-400"
+              className="w-10 h-10 ai-red"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -26,12 +27,9 @@ export default function Result() {
               />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-red-300 mb-2">เกิดข้อผิดพลาด</h2>
-          <p className="text-blue-200 text-center mb-4">{error}</p>
-          <button
-            onClick={() => navigate("/")}
-            className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow transition duration-200"
-          >
+          <h2 className="ai-error-title">เกิดข้อผิดพลาด</h2>
+          <p className="ai-blue text-center mb-4">{error}</p>
+          <button onClick={() => navigate("/")} className="ai-btn">
             กลับหน้าแรก
           </button>
         </div>
@@ -42,13 +40,10 @@ export default function Result() {
   // ไม่พบข้อมูล
   if (typeof score === "undefined" && typeof suggestion === "undefined" && !error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900">
-        <div className="bg-blue-900/90 rounded-xl shadow-2xl p-8 w-full max-w-md flex flex-col items-center border border-blue-800">
-          <h2 className="text-2xl font-bold text-red-300 mb-2">ไม่พบข้อมูล</h2>
-          <button
-            onClick={() => navigate("/")}
-            className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow transition duration-200"
-          >
+      <div className="ai-bg">
+        <div className="ai-card flex flex-col items-center">
+          <h2 className="ai-error-title">ไม่พบข้อมูล</h2>
+          <button onClick={() => navigate("/")} className="ai-btn">
             กลับหน้าแรก
           </button>
         </div>
@@ -58,12 +53,12 @@ export default function Result() {
 
   // ปกติ
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900">
-      <div className="bg-blue-900/90 rounded-xl shadow-2xl p-8 w-full max-w-md border border-blue-800">
+    <div className="ai-bg">
+      <div className="ai-card">
         <div className="flex flex-col items-center mb-6">
-          <div className="bg-green-900 rounded-full p-4 mb-2 shadow">
+          <div className="ai-icon-bg">
             <svg
-              className="w-10 h-10 text-green-300"
+              className="w-10 h-10 ai-green"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -76,23 +71,21 @@ export default function Result() {
               />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-blue-200">
-            ผลการวิเคราะห์วิดีโอ
-          </h2>
+          <h2 className="ai-result-title">ผลการวิเคราะห์วิดีโอ</h2>
         </div>
-        <div className="space-y-4">
-          <div className="bg-blue-950/70 rounded-lg p-4 border border-blue-800">
-            <p className="text-blue-100 text-lg font-semibold">
+        <div>
+          <div className="ai-result-block">
+            <p className="font-semibold">
               คะแนน:{" "}
-              <span className="text-green-300">
+              <span className="ai-green">
                 {typeof score !== "undefined" ? score : "ไม่มีข้อมูล"}
               </span>
             </p>
           </div>
-          <div className="bg-blue-950/70 rounded-lg p-4 border border-blue-800">
-            <p className="text-blue-100 text-lg font-semibold">
+          <div className="ai-result-block">
+            <p className="font-semibold">
               คำแนะนำ:{" "}
-              <span className="text-blue-300">
+              <span className="ai-blue">
                 {typeof suggestion !== "undefined" ? suggestion : "ไม่มีข้อมูล"}
               </span>
             </p>

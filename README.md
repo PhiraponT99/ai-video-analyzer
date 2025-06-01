@@ -1,7 +1,7 @@
 # AI Video Analyzer
 
 AI Video Analyzer คือเว็บแอปสำหรับวิเคราะห์วิดีโอและให้คะแนน/คำแนะนำโดยใช้ AI  
-สร้างด้วย React, React Router, TypeScript และ TailwindCSS
+สร้างด้วย React, React Router, TypeScript 
 
 ## คุณสมบัติ
 
@@ -100,7 +100,6 @@ npm run build
 │   └── index.js          # SSR entry สำหรับ Vercel
 ├── .env                  # ตัวแปร API URL
 ├── package.json
-├── tailwind.config.js
 ├── vercel.json
 └── ...
 ```
