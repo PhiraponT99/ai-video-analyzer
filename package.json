@@ -5,17 +5,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^7.6.1",
-    "tailwindcss": "^4.1.8"
+    "react-router-dom": "^7.6.1"
   },
   "devDependencies": {
     "@types/node": "^22.15.29",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8",
     "vite": "^6.3.5"
   },
   "engines": {
